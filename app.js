@@ -1,44 +1,23 @@
-import express from 'express'; 
-import { db } from './config/db.js';
-import Todo from './models/Todo.js';
-
+import express from 'express'
+import {db} from './config/db.js'
 db()
+import todoRouter from './routes/toDoRoutes.js'
+let app=express()
 
-let app = express();
+//register the template engine
+app.set("view engine","ejs")
+// app.set("views","./views")
 
-//@Create a Todo
-//@POST
-//@Path -- /api/v1/todo
-app.post('/api/v1/todo', async (req, res) => {
-    res.send("created a todo")
+app.use(express.json())
+// app.use(express.static("public"))
+
+app.get("/",(req,res)=>{
+    res.render("home",{
+        name:'Jay Prakash Singh'
+    })
 })
 
-//@Get all Todos
-//@GET
-//@Path -- /api/v1/todo/
-app.get('/api/v1/todo', async (req, res) => {
-    res.send("fetched all todos")
-})
-
-//@Get a Todo
-//@GET
-//@Path -- /api/v1/todo/:id
-app.get('/api/v1/todo/:id', async (req, res) => {
-    res.send("fetched a todo")
-})
-
-//@Update a Todo
-//@PUT
-//@Path -- /api/v1/todo/:id
-app.put('/api/v1/todo/:id', async (req, res) => {
-    res.send("update a todo")
-})
-
-//@Deleted a Todo
-//@DELETE
-//@Path -- /api/v1/todo/:id
-app.delete('/api/v1/todo/:id', async (req, res) => {
-    res.send("deleted a todo")
-})
+//base route
+app.use("/api/v1/todo",todoRouter)
 
 export default app;
