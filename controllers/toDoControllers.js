@@ -20,9 +20,7 @@ let postTodo = async (req, res) => {
 let getTodos = async (req, res) => {
     try {
         let todos = await Todo.find()
-        res.render("home", {
-            todos
-        })
+        res.render("home", { todos })
     } catch (error) {
         res.status(400).json({
             msg: error.msg
@@ -69,7 +67,7 @@ let deleteTodo = async (req, res) => {
         let id = req.params.id
         await Todo.findByIdAndDelete(id)
         res.status(200).json({
-            msg: "doc deleted"
+            msg: "Document Deleted Successfully...!"
         })
     } catch (error) {
         res.status(400).json({
