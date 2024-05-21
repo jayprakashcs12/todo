@@ -3,9 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To Do Apps</title>
+        <title>Create ToDo</title>
     </head>
     <body>
-        <h1>Good Morning, Mr. <%= name%></h1>
+        <div class="input_container">
+            <h1>Todo</h1>
+            <form action="/api/v1/todo" method="post">
+                <input type="text" name="name">
+                <button type="submit">Create</button>
+            </form>
+        </div>
+
+        <div class="todo_list">
+            <h2>List of todos</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Todo</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                <% todos.forEach((todo, i) => { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td><%= todo.name %></td>
+                        <td><a href="/api/v1/todo/<%= todo._id %>">Update</a></td>
+                        <td>Delete</td>
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
     </body>
 </html>

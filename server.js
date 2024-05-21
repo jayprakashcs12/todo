@@ -1,10 +1,9 @@
 import http from 'http';
 import app from './app.js';
+let PORT=5000
+let server=http.createServer(app)
 
-let port = 5000;
-let server = http.createServer(app);
-
-server.listen(port, (err) => {
-    if (err) console.log(err);
-    console.log(`Server is running on port no ${port}...!`);
-});
+server.listen(PORT,(err)=>{
+    if(err)console.log(err);
+    console.log(`Server is running on port ${PORT}`);
+})

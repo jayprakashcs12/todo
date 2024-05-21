@@ -1,17 +1,17 @@
-import mongoose from "mongoose";
-
-const todoSchema=new mongoose.Schema({
+import {Schema,model} from "mongoose";
+//as mongodb is Schemaless defining schema is recommended 
+let todoSchema=new Schema({
     name:{
         type:String,
         required:true,
         trim:true
     },
-    completed:{
+    isCompleted:{
         type:Boolean,
         default:false
     }
 })
+//model the Todo collection using todoSchema using model function
+let Todo=model("Todo",todoSchema)
 
-let toDo=mongoose.model("toDo",todoSchema)
-
-export default toDo;
+export default Todo;

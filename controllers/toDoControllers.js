@@ -1,79 +1,81 @@
-import toDo from "../models/toDo.js";
+import Todo from "../models/Todo.js"
 
-//@Create a toDo
+//@Create a Todo
 //@POST
-//@Path -- /api/v1/toDo/
+//@path--/api/v1/todo
 let postTodo = async (req, res) => {
     try {
-        let postTodo = await toDo.create(req.body)
-        res.status(201).json(postTodo)
-    } catch (err) {
+        await Todo.create(req.body)
+        res.redirect("/api/v1/todo")
+    } catch (error) {
         res.status(400).json({
-            msg:err.msg
+            msg: error.msg
         })
     }
 }
 
-
-//@Get all toDos
+//@Get all Todos
 //@GET
-//@Path -- /api/v1/toDo/
+//@path--/api/v1/todo
 let getTodos = async (req, res) => {
     try {
-        let getTodos = await toDo.find()
-        res.status(201).json(getTodos)
-    } catch (err) {
+        let todos = await Todo.find()
+        res.render("home", {
+            todos
+        })
+    } catch (error) {
         res.status(400).json({
-            msg:err.msg
+            msg: error.msg
         })
     }
 }
 
-//@Get a toDo
+//@Get a Todo
 //@GET
-//@Path -- /api/v1/toDo/:id
+//@path--/api/v1/todo/:id
 let getTodo = async (req, res) => {
     try {
         let id = req.params.id
-        let getTodo = await toDo.findById(id)
-        res.status(200).json({getTodo})
-    } catch (err) {
+        let todo = await Todo.findById(id)
+        //  res.status(200).json(todo)
+        res.render("update", { todo })
+    } catch (error) {
         res.status(400).json({
-            msg:err.msg
+            msg: error.msg
         })
     }
 }
 
-//@Update a toDo
+//@Update a Todo
 //@PUT
-//@Path -- /api/v1/toDo/:id
+//@path--/api/v1/todo/:id
 let updateTodo = async (req, res) => {
     try {
         let id = req.params.id
-        let updateTodo = await toDo.findByIdAndUpdate(id.req.body, {new:true})
-        res.status(200).json({updateTodo})
-    } catch (err) {
+        let updatedTodo = await Todo.findByIdAndUpdate(id, req.body, { new: true })
+        res.status(200).json(updatedTodo)
+    } catch (error) {
         res.status(400).json({
-            msg:err.msg
+            msg: error.msg
         })
     }
 }
 
-//@Deleted a toDo
+//@Delete a Todo
 //@DELETE
-//@Path -- /api/v1/toDo/:id
+//@path--/api/v1/todo/:id
 let deleteTodo = async (req, res) => {
     try {
         let id = req.params.id
-        await toDo.findByIdAndDelete(id)
+        await Todo.findByIdAndDelete(id)
         res.status(200).json({
-            msg:"Document Deleted Successfully...!"
+            msg: "doc deleted"
         })
-    } catch (err) {
+    } catch (error) {
         res.status(400).json({
-            msg:err.msg
+            msg: error.msg
         })
     }
 }
 
-export { postTodo, getTodos, getTodo, updateTodo, deleteTodo };
+export { postTodo, getTodos, getTodo, updateTodo, deleteTodo }
