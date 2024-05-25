@@ -49,31 +49,34 @@ let getTodo = async (req, res) => {
 //@path--/api/v1/todo/:id
 let updateTodo = async (req, res) => {
     try {
-        let id = req.params.id
-        let updatedTodo = await Todo.findByIdAndUpdate(id, req.body, { new: true })
-        res.status(200).json(updatedTodo)
+        let id = req.params.id;
+        // let updatedTodo = await Todo.findByIdAndUpdate(id, req.body, { new: true });
+        // res.status(200).json(updatedTodo);
+        await Todo.findByIdAndUpdate(id, req.body, { new: true });
+        res.redirect("/api/v1/todo");
     } catch (error) {
         res.status(400).json({
-            msg: error.msg
-        })
+            message: error.message,
+        });
     }
-}
+};
 
 //@Delete a Todo
 //@DELETE
 //@path--/api/v1/todo/:id
 let deleteTodo = async (req, res) => {
     try {
-        let id = req.params.id
-        await Todo.findByIdAndDelete(id)
-        res.status(200).json({
-            msg: "Document Deleted Successfully...!"
-        })
+        let id = req.params.id;
+        await Todo.findByIdAndDelete(id);
+        // res.status(200).json({
+        //   message: "doc deleted",
+        // });
+        res.redirect("/api/v1/todo");
     } catch (error) {
         res.status(400).json({
-            msg: error.msg
-        })
+            message: error.message,
+        });
     }
-}
+};
 
 export { postTodo, getTodos, getTodo, updateTodo, deleteTodo }

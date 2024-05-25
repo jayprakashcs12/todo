@@ -4,37 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create ToDo</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <div class="input_container">
-      <h1>Todo</h1>
-      <form action="/api/v1/todo" method="post">
-        <input type="text" name="name">
-        <button type="submit">Create</button>
+      <h1 class="pro-head">Todo</h1>
+      <form action="/api/v1/todo" method="post" class="pro-form">
+        <input type="text" name="name" class="pro-input" placeholder="Enter to-do value hrere">
+        <button class="pro-btn pro-edit" type="submit">Create</button>
       </form>
-    </div>
 
-    <div class="todo_list">
-      <h2>List of todos</h2>
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Todo</th>
-          <th colspan="2">Action</th>
-        </tr>
-        <% todos.forEach((todo, i)=> { %>
+      <div class="todo_list">
+        <h2>List of todos</h2>
+        <table>
           <tr>
-            <td>
-              <%= i + 1 %>
-            </td>
-            <td>
-              <%= todo.name %>
-            </td>
-            <td><a href="/api/v1/todo/<%= todo._id %>">Update</a></td>
-            <td>Delete</td>
+            <th>ID</th>
+            <th>Todo</th>
+            <th colspan="2">Action</th>
           </tr>
-          <% }) %>
-      </table>
+          <% todos.forEach((todo, i)=> { %>
+            <tr>
+              <td>
+                <%= i + 1 %>
+              </td>
+              <td>
+                <%= todo.name %>
+              </td>
+              <td><a class="pro-btn pro-edit" href="/api/v1/todo/<%= todo._id%>">Update</a></td>
+              <td>
+                <form action="/api/v1/todo/<%= todo._id%>?_method=DELETE" method="post" id="formdel">
+                  <button class="pro-btn pro-del" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+        </table>
+      </div>
     </div>
   </body>
 </html>

@@ -4,13 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update ToDo</title>
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
         <div class="input_container">
-            <h1>Todo</h1>
-            <form action="" method="post">
-                <input type="text" name="name" value="<%= todo.name%>">
-                <button type="submit">Update</button>
+            <h1>Edit Todo</h1>
+            <form class="pro-form" action="/api/v1/todo/<%= todo._id%>?_method=PUT" method="post" autocomplete="off">
+                <input type="text" class="pro-input" name="name" placeholder="Enter to-do value hrere" value="<%= todo.name%>">
+                <button type="submit" class="pro-btn pro-edit">Update</button>
             </form>
         </div>
     </body>
