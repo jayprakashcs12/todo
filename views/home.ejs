@@ -30,7 +30,7 @@
               <td>
                 <%= todo.name %>
               </td>
-              <td><a class="pro-btn pro-edit" href="/api/v1/todo/<%= todo._id%>">Update</a></td>
+              <td><a class="pro-btn pro-edit" href="/api/v1/todo/<%= todo._id%>">Edit</a></td>
               <td>
                 <form action="/api/v1/todo/<%= todo._id%>?_method=DELETE" method="post" id="formdel">
                   <button class="pro-btn pro-del" type="submit">Delete</button>
