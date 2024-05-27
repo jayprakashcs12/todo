@@ -1,11 +1,11 @@
 .input_container {
-    position: relative;
     top: 40px;
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    position: relative;
     border-radius: 5px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
     background-color: #f9f9f9;
 }
 
@@ -18,7 +18,7 @@
 .pro-head {
     text-align: center;
     color: #333;
-    margin: 0;
+    margin: 2% 0;
 }
 
 .pro-input, .pro-btn {
@@ -36,19 +36,19 @@
 }
 
 .pro-btn {
-    color: #fff;
     cursor: pointer;
     padding: 13px 15px;
     border-radius: 15px;
     text-decoration: none;
+    background-color: #333;
 }
 
 .pro-del {
-    background-color:#ff0000;
+    color:#ff0000;
 }
 
 .pro-edit {
-    background-color:#006400;
+    color:#006400;
 }
 
 .todo_list {
