@@ -6,7 +6,7 @@ export const register = async (req, res, next) => {
         
         const { name, email, password, confirmPassword } = req.body;
 
-        let existingUser = await User.findOne({email})
+        let existingUser = await User.findOne({email});
 
         if(existingUser) {
             return res.status(400).json({
@@ -18,8 +18,14 @@ export const register = async (req, res, next) => {
             name, email, password, confirmPassword
         })
 
-        res.status(201).json(newUser)
+        let token = await jwt.sign({id:newUser._id}, "SecretKey", {
+            expiresIn: 24*60*60
+        })
+
+        res.status(201).json(newUser, token)
+
     } catch (err) {
+
         res.status(400).json({
             message:err.message
         })
