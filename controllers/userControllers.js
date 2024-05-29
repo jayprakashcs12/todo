@@ -32,4 +32,18 @@ export const register = async (req, res, next) => {
     }
 };
 
-// export const login = async 
+export const login = async (req, res)  => {
+    try {
+        const { email, password } = req.body;
+        let existingUser = await User.findOne({email})
+        if (!existingUser || !(await existingUser.verifyPassword(password, existingUser.password))) {
+            return res.status(400).json({
+                msg:"Username and password do not match...!"
+            })
+        }
+        let token = await genToken(existingUser._id)
+        res.status(200).json({ existingUser, token })
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+}
