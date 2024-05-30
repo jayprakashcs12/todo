@@ -1,16 +1,18 @@
 import express from 'express'
-import { deleteTodo, getTodo, getTodos, postTodo, updateTodo } from '../controllers/toDoControllers.js'
+import { deleteTodo, getTodo, getTodos, postTodo, updateTodo } from '../controllers/todoControllers.js'
+import { auth } from '../middlewares/auth.js'
 //router instance--to have routes
 let todoRouter=express.Router()
 
 //router level middleware
 // todoRouter.use()
 
-todoRouter.post("/",postTodo)
-todoRouter.get("/",getTodos)
-todoRouter.get("/:id",getTodo)
-todoRouter.put("/:id",updateTodo)
-todoRouter.delete("/:id",deleteTodo)
+//http://localhost:5000/api/v1/todo/:id
+todoRouter.post("/",auth,postTodo)
+todoRouter.get("/",auth,getTodos)
+todoRouter.get("/:id",auth,getTodo)
+todoRouter.put("/:id",auth,updateTodo)
+todoRouter.delete("/:id",auth,deleteTodo)
 
 
 export default todoRouter;

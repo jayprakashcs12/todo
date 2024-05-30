@@ -23,27 +23,27 @@ let userSchema=new Schema({
     confirmPassword:{
         type:String,
         validate:{
-            validator:function(value) {
-                return this.password === value;
+            validator:function(value){
+                return this.password===value
             },
-            message:"Password and Confirm Password must be same...!"
+            message:"Password and Confirm Password doesn't match"
         },
-        select: false
-    },
+        select:false
+    }
 },{
     timestamps:true
 })
- 
-//pre hook --before saving the document
-userSchema.pre("save", async function(next){
-    let salt = await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)
+
+//pre hook---before saving the document
+userSchema.pre("save",async function(next){
+    let salt=await bcrypt.genSalt(10)
+    this.password=await bcrypt.hash(this.password,salt)
     next()
 })
 
 //methods to verify password
-userSchema.methods.verifyPassword = async function(pwd, pwdDB) {
-    return await bcrypt.compare(pwd, pwdDB)
+userSchema.methods.verifyPassword=async function(pwd,pwdDB){
+    return await bcrypt.compare(pwd,pwdDB)
 }
 
 let User=model("User",userSchema)
