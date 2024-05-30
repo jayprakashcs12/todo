@@ -26,7 +26,7 @@ let userSchema=new Schema({
             validator:function(value){
                 return this.password===value
             },
-            message:"Password and Confirm Password doesn't match"
+            msg:"Password and Confirm Password doesn't match"
         },
         select:false
     }

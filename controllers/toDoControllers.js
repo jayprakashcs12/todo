@@ -1,34 +1,30 @@
 import Todo from "../models/Todo.js"
 
-
 //@Create a Todo
 //@POST
 //@path--/api/v1/todo
-let postTodo=async (req,res,next)=>{
+let postTodo = async (req, res, next) => {
     try {
-     let todo=await Todo.create(req.body)
-     res.status(201).json(todo)
+        let todo = await Todo.create(req.body)
+        res.status(201).json(todo)
     } catch (error) {
-    //  res.status(400).json({
-    //      message:error.message
-    //  })
-    let err=new Error(error.message)
-    err.status=400;
-    next(err);
+        let err = new Error(error.msg)
+        err.status = 400;
+        next(err);
     }
- }
+}
 
 //@Get all Todos
 //@GET
 //@path--/api/v1/todo
- let getTodos=async (req,res)=>{
+let getTodos = async (req, res) => {
     try {
-        let todos=await Todo.find()
+        let todos = await Todo.find()
         res.status(200).json(todos)
     } catch (error) {
         res.status(400).json({
-            message:error.message
-        }) 
+            msg: error.msg
+        })
     }
 }
 
@@ -36,51 +32,48 @@ let postTodo=async (req,res,next)=>{
 //@Get a Todo
 //@GET
 //@path--/api/v1/todo/:id
-let getTodo=async (req,res)=>{
+let getTodo = async (req, res) => {
     try {
-     let id=req.params.id
-     let todo=await Todo.findById(id)
-     res.status(200).json(todo)
+        let id = req.params.id
+        let todo = await Todo.findById(id)
+        res.status(200).json(todo)
     } catch (error) {
-     res.status(400).json({
-         message:error.message
-     }) 
+        res.status(400).json({
+            msg: error.msg
+        })
     }
 }
-
 
 //@Update a Todo
 //@PUT
 //@path--/api/v1/todo/:id
-let updateTodo=async (req,res)=>{
+let updateTodo = async (req, res) => {
     try {
-        let id=req.params.id
-        let updatedTodo=await Todo.findByIdAndUpdate(id,req.body,{new:true})
+        let id = req.params.id
+        let updatedTodo = await Todo.findByIdAndUpdate(id, req.body, { new: true })
         res.status(200).json(updatedTodo)
-       } catch (error) {
+    } catch (error) {
         res.status(400).json({
-            message:error.message
-        })  
-       }
+            msg: error.msg
+        })
+    }
 }
 
 //@Delete a Todo
 //@DELETE
 //@path--/api/v1/todo/:id
-let deleteTodo=async (req,res)=>{
+let deleteTodo = async (req, res) => {
     try {
-        let id=req.params.id
+        let id = req.params.id
         await Todo.findByIdAndDelete(id)
         res.status(200).json({
-            message:"doc deleted"
+            msg: "doc deleted"
         })
-       } catch (error) {
+    } catch (error) {
         res.status(400).json({
-            message:error.message
-        }) 
-       }
+            msg: error.msg
+        })
+    }
 }
 
-export {
-    postTodo,getTodos,getTodo,updateTodo,deleteTodo
-}
+export { postTodo, getTodos, getTodo, updateTodo, deleteTodo }

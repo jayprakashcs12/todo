@@ -7,7 +7,7 @@ let PORT=5000;
 let server=http.createServer(app)
 
 
-server.listen(PORT,(err)=>{
-    if(err)console.log(err);
+server.listen(PORT,(error)=>{
+    if(error)console.log(error);
     console.log(`Server is running on port ${PORT}...`);
 })
