@@ -67,7 +67,7 @@ let deleteTodo = async (req, res) => {
         let id = req.params.id
         await Todo.findByIdAndDelete(id)
         res.status(200).json({
-            msg: "doc deleted"
+            msg: "Document Deleted Successfully...!"
         })
     } catch (error) {
         res.status(400).json({
