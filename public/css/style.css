@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+}
+main{
+    width: 900px;
+    margin: 0 auto;
+}
+main .input_container{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+.input_container form{
+    padding: 10px;
+    display: flex;
+    gap: 0.25em;
+}
+.input_container form input{
+    flex: 2 0 auto;
+    padding: 10px;
+}
+.input_container form button{
+    flex: 1 0 auto;
+    padding: 10px;
+}
+main .todo_list{
+    width: 100%;
+    margin-top: 1em;
+    text-align: center;
+}
+.todo_list table{
+    width: 100%;
+    margin-top: 2em;
+    padding: 20px;
+}
+th{
+    height: 70px;
+    background-color: #ddd;
+}
+td{
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+td>a{
+    padding: 8px 10px;
+    text-decoration: none;
+    background-color: #ddd;
+    color: black;
+    border-radius: 5px;
+}
+
+main .register_container{
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 20px;
+}
+main .register_container h1{
+    text-align: center;
+    margin-bottom: 0.25em;
+}
+main .register_container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+main .register_container form input{
+    padding: 10px;
+}
+main .register_container form label{
+    font-size: 1.5em;
+}
+main .register_container form .btn_container{
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25em;
+}
+main .register_container form .btn_container button{
+    padding: 10px 12px;
+    flex: 1;
+}
+
+main .login_container{
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 20px;
+}
+main .login_container h1{
+    text-align: center;
+    margin-bottom: 0.25em;
+}
+main .login_container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+main .login_container form input{
+    padding: 10px;
+}
+main .login_container form label{
+    font-size: 1.5em;
+}
+main .login_container form .btn_container{
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25em;
+}
+main .login_container form .btn_container button{
+    padding: 10px 12px;
+    flex: 1;
+}

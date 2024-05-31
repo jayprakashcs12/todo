@@ -7,7 +7,6 @@ let todoRouter=express.Router()
 //router level middleware
 // todoRouter.use()
 
-//http://localhost:5000/api/v1/todo/:id
 todoRouter.post("/",auth,postTodo)
 todoRouter.get("/",auth,getTodos)
 todoRouter.get("/:id",auth,getTodo)
