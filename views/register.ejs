@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
    <main> <div class="register_container">
-    <h1>Register</h1>
+    <h1 class="form-head">Register</h1>
     <form action="/api/v1/user/register" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" name="confirmPassword" id="confirmPassword">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" type="text" name="name" id="name" placeholder="Enter Your First Name">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" type="email" name="email" id="" placeholder="Enter Your Email">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" name="password" id="password" placeholder="Enter Your Password">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input class="form-input" type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter Your Confirm Password">
         <div class="btn_container">
-            <button type="submit">Signup</button>
-            <button type="reset">Clear</button>
+            <button class="form-btn sub-btn" type="submit">Signup</button>
+            <button class="form-btn reset-btn" type="reset">Clear</button>
         </div>
     </form>
 </div></main>

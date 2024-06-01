@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -67,60 +66,81 @@ td>a {
     border-radius: 5px;
 }
 
-.login_container, .register_container {
-    width: 400px;
+main .register_container {
+    width: 350px;
     margin: 0 auto;
     margin-top: 2em;
     padding: 20px;
 }
 
-.form-head {
+main .register_container h1 {
     text-align: center;
     margin-bottom: 0.25em;
 }
 
-form {
+main .register_container form {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.form-input {
+main .register_container form input {
     padding: 10px;
+    padding: 10px;
+    border: none;
+    border: 1px solid #333;
     border-radius: 10px;
 }
 
-.form-label {
+main .register_container form label {
     font-size: 1.5em;
 }
 
-.btn_container {
+main .register_container form .btn_container {
     display: flex;
     justify-content: space-around;
     gap: 0.25em;
 }
 
-.form-btn {
-    border-radius: 20px;
-    font-size: 15px;
+main .register_container form .btn_container button {
+    padding: 10px 12px;
     cursor: pointer;
-    padding: 15px;
-    color: #fff;
     flex: 1;
 }
 
-.form-input, .form-btn {
-    border: none;
+main .login_container {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 20px;
 }
 
-.form-input {
-    border: 1px solid #333;
+main .login_container h1 {
+    text-align: center;
+    margin-bottom: 0.25em;
 }
 
-.sub-btn {
-    background-color: green;
+main .login_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
-.reset-btn {
-    background-color: red;
+main .login_container form input {
+    padding: 10px;
+}
+
+main .login_container form label {
+    font-size: 1.5em;
+}
+
+main .login_container form .btn_container {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25em;
+}
+
+main .login_container form .btn_container button {
+    padding: 10px 12px;
+    flex: 1;
 }

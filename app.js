@@ -19,8 +19,8 @@ app.use(express.static("public"))
 
 
 //base route
-// app.use("/api/v1/todo",todoRouter)
-// app.use("/api/v1/user",userRouter)
+app.use("/api/v1/todo",todoRouter)
+app.use("/api/v1/user",userRouter)
 
 
 //cookies
