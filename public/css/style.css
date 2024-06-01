@@ -15,35 +15,35 @@ main {
     margin: 0 auto;
 }
 
-main .input_container {
+.input_container {
     width: 100%;
     padding: 20px;
     text-align: center;
 }
 
-.input_container form {
+.todo-form {
     padding: 10px;
     display: flex;
     gap: 0.25em;
 }
 
-.input_container form input {
+.todo-input {
     flex: 2 0 auto;
     padding: 10px;
 }
 
-.input_container form button {
+.todo-btn {
     flex: 1 0 auto;
     padding: 10px;
 }
 
-main .todo_list {
+.todo_list {
     width: 100%;
     margin-top: 1em;
     text-align: center;
 }
 
-.todo_list table {
+.todo-table {
     width: 100%;
     margin-top: 2em;
     padding: 20px;
@@ -74,7 +74,7 @@ td>a {
     padding: 20px;
 }
 
-.form-head {
+.form-head, .todo-head {
     text-align: center;
     margin-bottom: 0.25em;
 }
