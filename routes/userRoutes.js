@@ -1,5 +1,6 @@
 import {Router} from 'express'
-import { getLoginForm, getRegisterForm, login, register } from '../controllers/userControllers.js';
+import { getLoginForm, getRegisterForm, login, logout, register } from '../controllers/userControllers.js';
+
 
 let userRouter=Router()
 
@@ -8,6 +9,7 @@ userRouter.post("/register",register)
 userRouter.post("/login",login)
 userRouter.get("/register",getRegisterForm)
 userRouter.get("/login",getLoginForm)
+userRouter.get("/logout",logout)
 
 
 export default userRouter;

@@ -7,11 +7,18 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
+        <header>
+            <div class="logo">Logo</div>
+            <ul class="unorder-list">
+                <li class="order-list">Welcome <%= name%></li>
+                <li class="order-list"><a href="/api/v1/user/logout">Logout</a></li>
+            </ul>
+        </header>
         <main>
             <div class="input_container">
                 <h1 class="form-head">Update Todo</h1>
-                <form action="/api/v1/todo/<%= todo._id%>?_method=PUT" method="post">
-                    <input class="form-input" type="text" name="name" value="<%= todo.name%>">
+                <form class="todo-form" action="/api/v1/todo/<%= todo._id%>?_method=PUT" method="post">
+                    <input class="todo-input" type="text" name="name" value="<%= todo.name%>">
                     <button class="form-btn sub-btn" type="submit">Update</button>
                 </form>
             </div>

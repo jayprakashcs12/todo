@@ -3,7 +3,8 @@ import User from '../models/User.js'
 
 export const auth=async (req,res,next)=>{
     try {
-        let token=req.headers?.authorization?.split(" ")[1]
+        // let token=req.headers?.authorization?.split(" ")[1]
+        let token=req.cookies?.jwt
         if(!token){
             return res.status(401).json({
                 message:"You're not logged in!"
@@ -24,3 +25,4 @@ export const auth=async (req,res,next)=>{
         })  
 }
 }
+

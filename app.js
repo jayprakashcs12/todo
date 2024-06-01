@@ -23,35 +23,6 @@ app.use("/api/v1/todo",todoRouter)
 app.use("/api/v1/user",userRouter)
 
 
-//cookies
-app.get("/set-cookie",(req,res)=>{
-    res.cookie("secret","123456",{
-        httpOnly:true,
-        maxAge:24*60*60*1000
-    })
-    res.send("cookie set")
-})
-
-app.get("/get-cookie",(req,res)=>{
-    res.send(req.cookies.secret)
-})
-
-app.get("/update-cookie",(req,res)=>{
-    res.cookie("secret","23456",{
-        httpOnly:true,
-        maxAge:24*60*60*1000
-    })
-    res.send("cookie updated")
-})
-
-app.get("/delete-cookie",(req,res)=>{
-    // res.cookie("secret","",{
-    //     maxAge:5
-    // })
-    res.clearCookie("secret")
-    res.send("cookie deleted")
-})
-
 
 
 export default app;

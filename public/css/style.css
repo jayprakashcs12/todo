@@ -10,6 +10,22 @@ body {
     width: 100%;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: red;
+    padding: 0 5%;
+    height: 80px;
+}
+
+.unorder-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
 main {
     width: 900px;
     margin: 0 auto;
@@ -22,19 +38,18 @@ main {
 }
 
 .todo-form {
-    padding: 10px;
     display: flex;
+    flex-direction: row;
+    padding: 10px;
     gap: 0.25em;
 }
 
 .todo-input {
     flex: 2 0 auto;
     padding: 10px;
-}
-
-.todo-btn {
-    flex: 1 0 auto;
-    padding: 10px;
+    border: none;
+    border: 1px solid #333;
+    border-radius: 20px;
 }
 
 .todo_list {
@@ -56,15 +71,12 @@ th {
 
 td {
     height: 50px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
 }
 
-td>a {
+.todo-btn, .todo-input {
     padding: 8px 10px;
     text-decoration: none;
-    background-color: #ddd;
-    color: black;
-    border-radius: 5px;
 }
 
 .login_container, .register_container {
@@ -100,17 +112,21 @@ form {
     gap: 0.25em;
 }
 
-.form-btn {
-    border-radius: 20px;
-    font-size: 15px;
+.form-btn, .todo-btn  {
     cursor: pointer;
-    padding: 15px;
     color: #fff;
     flex: 1;
 }
 
-.form-input, .form-btn {
-    border: none;
+.form-btn {
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.form-btn, .todo-btn {
+    outline: none !important;
+    border: none !important;
 }
 
 .form-input {

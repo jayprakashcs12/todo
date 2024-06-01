@@ -19,10 +19,15 @@ export const register=async (req,res,next)=>{
             confirmPassword
         })
         let token=await genToken(newUser._id)
-        res.status(201).json({
-            newUser,
-            token
+        res.cookie("jwt",token,{
+            httpOnly:true,
+            maxAge:24*60*60*1000
         })
+        res.redirect("/api/v1/todo")
+        // res.status(201).json({
+        //     newUser,
+        //     token
+        // })
         
     } catch (error) {
         res.status(400).json({
@@ -41,16 +46,26 @@ export const login=async (req,res)=>{
         })
       }
       let token=await genToken(existingUser._id)
-      res.status(200).json({
-        existingUser,
-        token
-      }) 
+      res.cookie("jwt",token,{
+        httpOnly:true,
+        maxAge:24*60*60*1000
+    })
+      res.redirect("/api/v1/todo")
+    //   res.status(200).json({
+    //     existingUser,
+    //     token
+    //   }) 
     } catch (error) {
         res.status(400).json({
             message:error.message
         })
     }
 }
+
+export const logout=(req,res)=>{
+    res.clearCookie("jwt")
+    res.redirect("/api/v1/user/login")
+} 
 
 export const getRegisterForm=(req,res)=>{
     res.render("register.ejs")

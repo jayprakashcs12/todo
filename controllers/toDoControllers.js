@@ -1,4 +1,5 @@
 import Todo from "../models/Todo.js"
+import User from "../models/User.js"
 
 
 //@Create a Todo
@@ -20,9 +21,11 @@ let postTodo=async (req,res)=>{
 //@path--/api/v1/todo
  let getTodos=async (req,res)=>{
     try {
+
         let todos=await Todo.find()
+        let {name}=await User.findById(req.user)
         res.render("home",{
-            todos
+            todos,name
         })
     } catch (error) {
         res.status(400).json({
@@ -39,9 +42,9 @@ let getTodo=async (req,res)=>{
     try {
      let id=req.params.id
      let todo=await Todo.findById(id)
-    //  res.status(200).json(todo)
+     let {name}=await User.findById(req.user)
     res.render("update",{
-        todo
+        todo,name
     })
     } catch (error) {
      res.status(400).json({
