@@ -33,7 +33,7 @@
                     <% todos.forEach(todo=>{ %>
                         <tr>
                             <td><%= todo.name%></td>
-                            <td><a class="todo-btn sub-btn" href="/api/v1/todo/<%= todo._id%>">Update</a></td>
+                            <td><a class="todo-btn sub-btn" href="/api/v1/todo/<%= todo._id%>">Edit</a></td>
                             <td>
                                 <form action="/api/v1/todo/<%= todo._id%>?_method=DELETE" method="post">
                                     <button class="todo-btn reset-btn">Delete</button>
