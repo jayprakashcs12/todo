@@ -24,10 +24,6 @@ export const register=async (req,res,next)=>{
             maxAge:24*60*60*1000
         })
         res.redirect("/api/v1/todo")
-        // res.status(201).json({
-        //     newUser,
-        //     token
-        // })
         
     } catch (error) {
         res.status(400).json({

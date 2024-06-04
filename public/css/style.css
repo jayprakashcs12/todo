@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: red;
+    background: #19909e;
     padding: 0 5%;
     height: 80px;
 }
@@ -54,19 +54,19 @@ main {
 
 .todo_list {
     width: 100%;
-    margin-top: 1em;
     text-align: center;
 }
 
 .todo-table {
     width: 100%;
-    margin-top: 2em;
-    padding: 20px;
+    margin-top: 1em;
+    padding: 10px;
 }
 
 th {
-    height: 70px;
     background-color: #ddd;
+    height: 60px;
+    width: 50%;
 }
 
 td {
@@ -75,8 +75,11 @@ td {
 }
 
 .todo-btn, .todo-input {
-    padding: 8px 10px;
     text-decoration: none;
+}
+
+.todo-input {
+    padding: 8px 10px;
 }
 
 .login_container, .register_container {
@@ -113,20 +116,13 @@ form {
 }
 
 .form-btn, .todo-btn  {
-    cursor: pointer;
-    color: #fff;
-    flex: 1;
-}
-
-.form-btn {
-    border-radius: 20px;
-    font-size: 15px;
-    padding: 15px;
-}
-
-.form-btn, .todo-btn {
     outline: none !important;
     border: none !important;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #fff;
 }
 
 .form-input {
@@ -134,9 +130,11 @@ form {
 }
 
 .sub-btn {
-    background-color: green;
+    background-color: #0d7d0d;
 }
 
 .reset-btn {
-    background-color: red;
+    background-color: #ec0a0a;
+    width: 35%;
+    margin: 0 auto;
 }
