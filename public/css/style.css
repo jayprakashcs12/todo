@@ -7,60 +7,72 @@
 
 body {
     min-height: 100vh;
+}
+
+body, .input_container, .todo_list, .todo-table {
     width: 100%;
 }
 
-header {
+.btn_container, form, header, .todo-form, .unorder-list {
     display: flex;
+}
+
+header, .unorder-list {
     justify-content: space-between;
-    align-items: center;
+}
+
+header {
     background: #19909e;
+    align-items: center;
     padding: 0 5%;
     height: 80px;
 }
 
 .unorder-list {
     list-style-type: none;
-    display: flex;
-    justify-content: space-between;
     width: 400px;
 }
 
 main {
-    width: 900px;
     margin: 0 auto;
+    width: 900px;
 }
 
 .input_container {
-    width: 100%;
     padding: 20px;
+}
+
+.form-head, .input_container, .todo-head, .todo_list {
     text-align: center;
 }
 
 .todo-form {
-    display: flex;
     flex-direction: row;
-    padding: 10px;
     gap: 0.25em;
+}
+
+.form-input, .todo-form, .todo-input, .todo-table {
+    padding: 10px;
 }
 
 .todo-input {
     flex: 2 0 auto;
-    padding: 10px;
-    border: none;
-    border: 1px solid #333;
-    border-radius: 20px;
+} 
+
+.form-btn, .todo-input, .todo-btn {
+    border: none !important;
 }
 
-.todo_list {
-    width: 100%;
-    text-align: center;
+.form-input, .todo-input {
+    border: 1px solid #333 !important;
+}
+
+.form-input, .todo-input {
+    border-radius: 10px;
 }
 
 .todo-table {
-    width: 100%;
     margin-top: 1em;
-    padding: 10px;
 }
 
 th {
@@ -70,12 +82,17 @@ th {
 }
 
 td {
+    border-bottom: 1px solid #333333;
     height: 50px;
-    border-bottom: 1px solid #000;
 }
 
-.todo-btn, .todo-input {
+.logout-tag, .todo-btn, .todo-input {
     text-decoration: none;
+}
+
+header, .logout-tag {
+    color: #ffffff;
+    font-size: 17px;
 }
 
 .todo-input {
@@ -83,26 +100,19 @@ td {
 }
 
 .login_container, .register_container {
-    width: 400px;
-    margin: 0 auto;
     margin-top: 2em;
+    margin: 0 auto;
     padding: 20px;
+    width: 400px;
 }
 
 .form-head, .todo-head {
-    text-align: center;
     margin-bottom: 0.25em;
 }
 
 form {
-    display: flex;
     flex-direction: column;
     gap: 1em;
-}
-
-.form-input {
-    padding: 10px;
-    border-radius: 10px;
 }
 
 .form-label {
@@ -110,23 +120,17 @@ form {
 }
 
 .btn_container {
-    display: flex;
     justify-content: space-around;
     gap: 0.25em;
 }
 
 .form-btn, .todo-btn  {
     outline: none !important;
-    border: none !important;
     border-radius: 20px;
-    font-size: 13px;
     padding: 8px 20px;
     cursor: pointer;
+    font-size: 13px;
     color: #fff;
-}
-
-.form-input {
-    border: 1px solid #333;
 }
 
 .sub-btn {
@@ -135,6 +139,6 @@ form {
 
 .reset-btn {
     background-color: #ec0a0a;
-    width: 35%;
     margin: 0 auto;
+    width: 35%;
 }
